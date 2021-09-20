@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Control de inventario</title>
+    </head>
+    <body>
+        <div class="header">
+          <h1>Sistema de Registro</h1>
+          <p class="azul">Sistema para el registro de participantes</p>
+        </div>
+      
+        <div class="content">
+          <div>
+            <h2>Formulario de Registro</h2>
+            <div class="content-info">
+              <form>
+                <div class="field">
+                  <label>Codigo:</label>
+                  <input id="id" type="number" size=35>
+                </div>
+                <div class="field">
+                  <label>producto:</label>
+                  <input id="name" type="text" size=35>
+                </div>
+                <div class="field">
+                  <label>Cantidad:</label>
+                  <input id="quantity" type="number">
+                </div>
+                <div class="field">
+                    <label>Costo:</label>
+                    <input id="cost" type="number">
+                  </div>
+                <div class="field">
+                  <input id="btnRegister" type="button" value="Registrar">
+                </div>
+              </form>
+            </div>
+          </div>
+          <div>
+            <h2>Personas registradas</h2>
+            <div class="content-info">
+              <table id="productos">
+                <tr>
+                  <th>Codigo</th>
+                  <th>producto</th>
+                  <th>Cantidad</th>
+                  <th>Costo</th>
+                </tr>
+              </table>
+            </div>
+      
+        </body>
+        <script src="Product.js" type="module"></script>
+</html>

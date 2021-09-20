@@ -9,23 +9,23 @@ export default class Product{
         this._cost = cost;
     }
 //metodos de lectura
-getId(){
-    return this._id;
-}
-getName(){
-    return this._name;
-}
-getQuantity(){
-    return this._quantity;
-}
-getCost(){
-    return this._cost;
-}
+    getId(){
+        return this._id;
+    }
+    getName(){
+        return this._name;
+    }
+    getQuantity(){
+        return this._quantity;
+    }
+    getCost(){
+        return this._cost;
+    }
 //metodos de escritura 
-setId(id){
-    return this._id= id;
-}
-setName(name){
-    return this._name= name;
-}
+    setId(id){
+        return this._id= id;
+    }
+    setName(name){
+        return this._name= name;
+    }
 }

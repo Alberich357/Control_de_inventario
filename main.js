@@ -1,5 +1,5 @@
 import Product from "./Product.js";
-import Registry from "./registry.js";
+import Inventory from "./inventory.js";
 class App {
     constructor() {
         this._inventory= new Inventory();
@@ -35,7 +35,34 @@ class App {
             cost=Number(cost)
             return new Product(id, name, quantity, cost);
         }
+        return null;
     }
+    
+      _searchProduct=()=>{
+        let id=document.getElementById('id').value;
+      let result=this._inventory.search(id);
+      let details=document.getElementById('result');
+     details.innerHTML=result;
+      }
+      _addProduct=()=>{
+        let product= this.readForm();
+        let result=document.getElementById("result");
+        if(product!=null){
+        let added=this._inventory.add(product);
+        result.innerHTML=added;
+        return
+      }
+          result.innerHTML="Error all the fields must be completed"
+        console.log(this._inventory)
+        return
+      }
+      _deleteProduct=()=>{
+        let id=document.getElementById('id').value;
+        let details=document.getElementById('result');
+     details.innerHTML=this._inventory.delete(id);
+      
+       
+      }
 }
 new App;
     

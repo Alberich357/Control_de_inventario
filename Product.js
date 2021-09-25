@@ -21,11 +21,15 @@ export default class Product{
     getCost(){
         return this._cost;
     }
-//metodos de escritura 
-    setId(id){
-        return this._id= id;
+    getFinalCost(){
+        return this._cost*this._quantity;
     }
-    setName(name){
-        return this._name= name;
-    }
+     infoHtml(){
+       return `
+                 <div>
+                     <h3>${this._id} - ${this._name}</h3>
+                     <p> $${this._cost} ${this._quantity} Final cost=${this.getFinalCost()}</p>
+                 </div>
+             `;
+     }
 }

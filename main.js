@@ -5,22 +5,23 @@ class App {
         this._inventory= new Inventory();
             const btnRegister= document.getElementById("btnAdd");
             const  btnSearch=document.getElementById("btnSearch");
-            const  btnBackwardlist=document.getElementById("btnBackwardlist");
             const  btnInsert=document.getElementById("btnInsert");
             const  btnDelete=document.getElementById("btnDelete");
             const  btnList=document.getElementById("btnList");
-          btnInsert.addEventListener("click",  this._insertProduct)
-          btnBackwardlist.addEventListener("click",  this.BackwardsList)
-          btnDelete.addEventListener("click",  this._deleteProduct)
-          btnList.addEventListener("click",  this._listProducts)
+            const  btnBackwardlist=document.getElementById("btnBackwardlist");
+          btnRegister.addEventListener("click", this._addProduct)
           btnSearch.addEventListener("click",  this._searchProduct)
-        btnRegister.addEventListener("click", this._addProduct)    
-      }
+          btnInsert.addEventListener("click",  this._addProduct)
+          btnDelete.addEventListener("click",  this._deleteProduct)
+          btnList.addEventListener("click",  this._productsList)
+          btnBackwardlist.addEventListener("click",  this._backwardsProductsList)
+        }
+
       readForm(){
-        let inpId=document.getElementById("id");
-        let inpName=document.getElementById("name");
-        let inpQuantity=document.getElementById("quantity");
-        let inpCost=document.getElementById("cost");
+        let inpId= document.getElementById("txtId");
+        let inpName= document.getElementById("txtName");
+        let inpQuantity= document.getElementById("txtQuantity");
+        let inpCost= document.getElementById("txtCost");
         let id=inpId.value;
         let name=inpName.value;
         let quantity=inpQuantity.value
@@ -39,7 +40,7 @@ class App {
     }
     
       _searchProduct=()=>{
-        let id=document.getElementById('id').value;
+        let id=document.getElementById('txtId').value;
       let result=this._inventory.search(id);
       let details=document.getElementById('result');
      details.innerHTML=result;
@@ -57,13 +58,17 @@ class App {
         return
       }
       _deleteProduct=()=>{
-        let id=document.getElementById('id').value;
+        let id=document.getElementById('txtId').value;
         let details=document.getElementById('result');
      details.innerHTML=this._inventory.delete(id);
-      
-       
-      }
-}
-new App;
-    
-
+    }
+    _productsList=()=>{
+      let details=document.getElementById('result');
+      details.innerHTML=this._inventory.list();
+    }
+    _backwardsProductsList=()=>{
+      let details=document.getElementById('result');
+      details.innerHTML=this._inventory.backwardList();
+    }
+  }
+    new App();
